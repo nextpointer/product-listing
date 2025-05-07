@@ -25,8 +25,17 @@ public class ProductController {
 
     @Operation(summary = "Search products")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", content = @Content(schema = @Schema(implementation = Product.class, type = "array"))}
-            @GetMapping
+            @ApiResponse(
+                    responseCode = "200",
+                    content = @Content(
+                            schema = @Schema(
+                                    implementation = Product.class,
+                                    type = "array"
+                            )
+                    )
+            )
+    })
+    @GetMapping
     public ResponseEntity<List<Product>> searchProducts(
             @Parameter(description = "Search term for product name/brand")
             @RequestParam(required = false) String search
@@ -39,8 +48,12 @@ public class ProductController {
     }
 
     @Operation(summary = "Get product by ID")
-    @ApiResponse(responseCode = "200",
-            content = @Content(schema = @Schema(implementation = Product.class)))
+    @ApiResponse(
+            responseCode = "200",
+            content = @Content(
+                    schema = @Schema(implementation = Product.class)
+            )
+    )
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(
             @Parameter(description = "Product ID") @PathVariable UUID id
@@ -49,8 +62,12 @@ public class ProductController {
     }
 
     @Operation(summary = "Upload product image")
-    @ApiResponse(responseCode = "200",
-            content = @Content(schema = @Schema(implementation = String.class)))
+    @ApiResponse(
+            responseCode = "200",
+            content = @Content(
+                    schema = @Schema(implementation = String.class)
+            )
+    )
     @PostMapping("/upload-image")
     public ResponseEntity<String> uploadImage(
             @Parameter(description = "Image file to upload")
