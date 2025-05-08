@@ -25,7 +25,7 @@ This project is split into two parts:
 
 ## 🔗 Subproject Documentation
 
-* 📘 [Backend README](./backend/README.md)
+* 📘 [Backend README](./backend/readme.md)
 * 📗 [Frontend README](./frontend/README.md)
 
 ---
